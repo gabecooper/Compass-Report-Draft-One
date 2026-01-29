@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internal Consensus - Transition & Slide 10</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/base.css">
+<link rel="stylesheet" href="static/css/slides.css">
+<link rel="stylesheet" href="static/css/slides10.css"><script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+<script>
+    // Chart data split by consensus level
+    const consensusHighData = [{"consensus": "High (\u2265.70)", "high": 0, "low": 71.4, "medium": 28.6, "name": "Jewish Texts, Torah, and Core Narratives", "rwg": 0.785714285714286}, {"consensus": "High (\u2265.70)", "high": 85.7, "low": 0, "medium": 14.3, "name": "Jewish Community", "rwg": 0.742857142857143}, {"consensus": "High (\u2265.70)", "high": 81.0, "low": 4.8, "medium": 14.3, "name": "Jewish Friendship", "rwg": 0.726190476190476}, {"consensus": "High (\u2265.70)", "high": 0, "low": 76.2, "medium": 23.8, "name": "God, Spirituality, and Prayer", "rwg": 0.726190476190476}, {"consensus": "High (\u2265.70)", "high": 30.0, "low": 25.0, "medium": 45.0, "name": "Jewish Arts and Culture", "rwg": 0.711842105263158}];
+    const consensusMediumData = [{"consensus": "Medium (.50\u2013.69)", "high": 61.9, "low": 4.8, "medium": 33.3, "name": "Rituals and Holidays", "rwg": 0.692857142857143}, {"consensus": "Medium (.50\u2013.69)", "high": 23.8, "low": 33.3, "medium": 42.9, "name": "Jewish Role Models", "rwg": 0.635714285714286}, {"consensus": "Medium (.50\u2013.69)", "high": 28.6, "low": 28.6, "medium": 42.9, "name": "Jewish Culinary Traditions", "rwg": 0.626190476190476}, {"consensus": "Medium (.50\u2013.69)", "high": 4.8, "low": 81.0, "medium": 14.3, "name": "Hebrew and Jewish Terminology", "rwg": 0.592857142857143}, {"consensus": "Medium (.50\u2013.69)", "high": 66.7, "low": 4.8, "medium": 28.6, "name": "Justice and Tzedakah", "rwg": 0.576190476190476}];
+    const consensusLowData = [{"consensus": "Low (\u003c.50)", "high": 42.9, "low": 23.8, "medium": 33.3, "name": "The Jewish People in its Diversity", "rwg": 0.483333333333334}, {"consensus": "Low (\u003c.50)", "high": 52.4, "low": 19.0, "medium": 28.6, "name": "Issues Facing Contemporary Jewry", "rwg": 0.469047619047619}, {"consensus": "Low (\u003c.50)", "high": 23.8, "low": 38.1, "medium": 38.1, "name": "Holiness of Nature and the Environment", "rwg": 0.45}, {"consensus": "Low (\u003c.50)", "high": 30.0, "low": 35.0, "medium": 35.0, "name": "Judaism\u0027s Relevance to Life\u0027s Questions", "rwg": 0.426315789473684}, {"consensus": "Low (\u003c.50)", "high": 42.9, "low": 23.8, "medium": 33.3, "name": "Jewish History, Memory, and Tradition", "rwg": 0.392857142857143}, {"consensus": "Low (\u003c.50)", "high": 19.0, "low": 47.6, "medium": 33.3, "name": "Mitzvot and Customs", "rwg": 0.371428571428571}, {"consensus": "Low (\u003c.50)", "high": 23.8, "low": 57.1, "medium": 19.0, "name": "Israel and its People", "rwg": 0.242857142857143}, {"consensus": "Low (\u003c.50)", "high": 42.9, "low": 42.9, "medium": 14.3, "name": "Expression of God\u0027s Creation", "rwg": -0.0452380952380953}];
+
+    // Debug: Log data availability
+    console.log('Consensus data loaded - High:', consensusHighData?.length || 0,
+        'Medium:', consensusMediumData?.length || 0,
+        'Low:', consensusLowData?.length || 0);
+</script>
+<script src="static/js/slides10.js" defer></script></head>
+<body>
+<div class="report-container">
+    <div class="sections-container">
+<div class="logo-bar">
+    <div class="logo-container">
+        <img src="assets/m2-logo.png" alt="M² Logo" class="logo">
+    </div>
+    <div class="logo-container">
+        <img src="assets/logo.png" alt="Logo" class="logo">
+    </div>
+    <div class="logo-container">
+        <img src="assets/shames-jcc-on-the-hudson-logo.png" alt="Shames JCC on the Hudson Logo" class="logo">
+    </div>
+</div>
+
+<!-- TRANSITION SLIDE (NO NUMBER) -->
+<div class="slide-container" style="margin-top: 30px;">
+    <div class="header">
+        <div class="header-content">
+            <h1 class="title title-large">Internal Consensus on Organizational Importance</h1>
+            <p class="subtitle subtitle-large">Where is there alignment—and misalignment—within the organization on
+                priorities?</p>
+        </div>
+    </div>
+
+    <div class="content transition-content">
+        <div class="instructions-box">
+            <p style="margin: 0 0 12px 0;"><strong>Instructions:</strong></p>
+            <p style="margin: 0;">
+                The following slide examines internal alignment between board and staff members on organizational
+                priorities. Understanding consensus requires a two-step approach.
+            </p>
+        </div>
+
+        <div class="highlight-box">
+            <p class="highlight-text">
+                <strong style="color: #2C90C4;">Step 1: Examine the rWG Index.</strong> Look at the colored dots to
+                identify areas of strong agreement (green), moderate agreement (yellow), or weak agreement (red). The
+                rWG score quantifies the level of consensus within the organization.
+            </p>
+
+            <div class="legend-guide">
+                <div class="legend-section-guide">
+                    <div class="legend-title">Consensus Levels (rWG):</div>
+                    <div class="legend-items-guide">
+                        <div class="legend-item-guide">
+                            <div class="dot" style="background: #C3D600;"></div>
+                            <span><strong>High (≥.70):</strong> Strong agreement</span>
+                        </div>
+                        <div class="legend-item-guide">
+                            <div class="dot" style="background: #FCC40F;"></div>
+                            <span><strong>Medium (.50–.69):</strong> Moderate agreement</span>
+                        </div>
+                        <div class="legend-item-guide">
+                            <div class="dot" style="background: #D1223F;"></div>
+                            <span><strong>Low (<.50):</strong> Weak agreement</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="highlight-text" style="margin-top: 25px;">
+                <strong style="color: #2C90C4;">Step 2: Examine the Distribution (especially for red dots).</strong>
+                When consensus is weak, review the percentage breakdown across Low, Medium, and High ratings to
+                understand the diversity of opinions. <em style="color: #D1223F;">Note: Exercise caution when
+                    interpreting percentages, particularly with smaller response samples.</em>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- SLIDE 10: CONSENSUS ANALYSIS -->
+<div class="slide-container">
+    <div class="header">
+        <div class="header-content header-with-number">
+            <div class="slide-number">10</div>
+            <div class="header-text">
+                <h1 class="title">Internal Consensus on Organizational Importance</h1>
+                <p class="subtitle">Where is there alignment—and misalignment—within the organization on priorities?</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="summary-box">
+            <strong>Key Findings:</strong> Board and staff demonstrate <strong>strong overall alignment</strong> across
+            dimensions. 5 dimensions show high consensus, and 5 more show moderate agreement. Only 8
+            dimensions have weak consensus.
+            <strong>Jewish Texts, Torah, and Core Narratives</strong> (rWG=0.79) shows the strongest alignment
+            , while <strong>Expression of God&#39;s Creation</strong> (rWG=-0.05) has the weakest consensus.
+            <div class="summary-stats">
+                <div class="stat-item">
+                    <span
+                        style="width: 12px; height: 12px; background: #C3D600; border-radius: 50%; display: inline-block;"></span>
+                    <span>5 High Consensus</span>
+                </div>
+                <div class="stat-item">
+                    <span
+                        style="width: 12px; height: 12px; background: #FCC40F; border-radius: 50%; display: inline-block;"></span>
+                    <span>5 Medium Consensus</span>
+                </div>
+                <div class="stat-item">
+                    <span
+                        style="width: 12px; height: 12px; background: #D1223F; border-radius: 50%; display: inline-block;"></span>
+                    <span>8 Low Consensus</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="legend-container">
+            <div class="legend-section">
+                <span class="legend-label">Distribution:</span>
+                <div class="legend-items">
+                    <div class="legend-item">
+                        <div class="legend-box"
+                            style="background: rgba(44, 144, 196, 0.9); border-color: rgba(44, 144, 196, 1);"></div>
+                        <span>High (4-5)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box"
+                            style="background: rgba(112, 195, 233, 0.7); border-color: rgba(112, 195, 233, 1);"></div>
+                        <span>Medium (3)</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box"
+                            style="background: rgba(173, 216, 230, 0.5); border-color: rgba(173, 216, 230, 1);"></div>
+                        <span>Low (1-2)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="consensus-section high">
+            <div class="consensus-section-header">
+                <span class="consensus-dot" style="background: #C3D600;"></span>
+                <span>High Consensus (rWG ≥ .70)</span>
+            </div>
+            <div class="chart-container" style="height: 305px;">
+                <div class="chart-wrapper">
+                    <canvas id="consensusChartHigh"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="consensus-section medium">
+            <div class="consensus-section-header">
+                <span class="consensus-dot" style="background: #FCC40F;"></span>
+                <span>Medium Consensus (rWG .50–.69)</span>
+            </div>
+            <div class="chart-container" style="height: 305px;">
+                <div class="chart-wrapper">
+                    <canvas id="consensusChartMedium"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="consensus-section low">
+            <div class="consensus-section-header">
+                <span class="consensus-dot" style="background: #D1223F;"></span>
+                <span>Low Consensus (rWG < .50)</span>
+            </div>
+            <div class="chart-container" style="height: 440px;">
+                <div class="chart-wrapper">
+                    <canvas id="consensusChartLow"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+<div class="return-to-index">
+    <a href="index.html#detailed-analysis" class="return-button">Return to Index</a>
+</div>
+</div>
+</body>
+</html>
